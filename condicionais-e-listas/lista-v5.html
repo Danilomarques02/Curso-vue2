@@ -3,8 +3,9 @@
 
 <div id="app">
     <ul>
-        <li v-for="(cor, i) in cores">{{ i + 1 }}) {{ cor }}</li>
+        <li v-for="(cor, i) in cores" :key="cor">{{ i + 1 }}) {{ cor }}</li>
     </ul>
+    <button @click="cores.pusf('branca')">Adicionar</button>
     <hr>
     <template v-for="(cor, i) in cores">
         <h1>{{ cor }}</h1>
@@ -18,6 +19,8 @@
             </div>
         </li>
     </ul>
+    <hr>
+    <div v-for="n in 10">{{ n }}</div>
 </div>
 
 <script>
