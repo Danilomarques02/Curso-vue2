@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googlepis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-</head>
-<body>
+    </head>
+    <body>
     <div id="app">
         <div class="panel scores">
             <div class="score">
@@ -29,7 +29,11 @@
                 <div>{{ monsterLife }}%</div>
             </div>
         </div>
-        <div class="panel result"></div>
+        <div v-if="hasResult" class="panel result">
+            <div v-if="monsterLife == 0" class="win">Você ganhou!!! :)</div>
+            <div v-else class="lose">Você perdeu! :(</div>
+        </div>
+
         <div class="panel buttons"></div>
         <div class="panel logs"></div>
     </div>
