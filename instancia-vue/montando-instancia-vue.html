@@ -2,17 +2,21 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-    <h1 ref="aulaRef">{{ aula }}</h1>
-    <h2>{{ modulo }}</h2>
-    <button @click="alterarAula">Alterar Aula</button>
-    <button @click="alterarModulo">Alterar Módulo</button>
+
 </div>
 
 <script>
     const vm = new Vue({
-        el: '#app',
+        template:`
+        <div>
+        <h1>{{ aula }}</h1>
+        <h2>{{ modulo }}</h2>
+        <button @click="alterarAula">Alterar Aula</button>
+        <button @click="alterarModulo">Alterar Módulo</button>
+        </div>
+        `,
         data: {
-            aula: 'Aula: Usando Refs',
+            aula: 'Aula: Montando instância Vue',
             modulo: 'Módulo: Instância Vue'
         },
         methods:{
@@ -21,10 +25,11 @@
             },
             alterarModulo(){
                 this.modulo += '#'
-                console.log(this.$ref.aulaRef.innerText)
             }
         }
     })
 
-    vm.$refs.aulaRef.innerText = 'Alterado diretamente :('
+   // vm.$mount('#app')
+   vm.$mount()
+   document.querySelector('#app').appendChild(vm.$el)
 </script>
